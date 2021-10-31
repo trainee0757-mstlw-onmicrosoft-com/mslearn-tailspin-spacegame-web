@@ -1,9 +1,5 @@
 trigger:
-<<<<<<< HEAD
 - '*'
-=======
-    - '*'     # build all branches
->>>>>>> 600412a6c6cf8ee1ec4d9c316d8f38df03c58a09
 
 pool:
   vmImage: 'ubuntu-20.04'
@@ -21,13 +17,10 @@ steps:
   inputs:
     version: '$(dotnetSdkVersion)'
 
-<<<<<<< HEAD
 - task: NuGetToolInstaller@0
   inputs:
     versionSpec: '5.9.1'
 
-=======
->>>>>>> 600412a6c6cf8ee1ec4d9c316d8f38df03c58a09
 - task: Npm@1
   displayName: 'Run npm install'
   inputs:
@@ -43,7 +36,6 @@ steps:
   displayName: 'Write build info'
   workingDirectory: $(wwwrootDir)
 
-<<<<<<< HEAD
 - task: NuGetCommand@2
   displayName: 'Restore project dependencies'
   inputs:
@@ -51,13 +43,6 @@ steps:
     restoreSolution: '**/*.sln'
     feedsToUse: 'select'
     vstsFeed: '$(System.TeamProject)/Tailspin.SpaceGame.Web.Models'
-=======
-- task: DotNetCoreCLI@2
-  displayName: 'Restore project dependencies'
-  inputs:
-    command: 'restore'
-    projects: '**/*.csproj'
->>>>>>> 600412a6c6cf8ee1ec4d9c316d8f38df03c58a09
 
 - task: DotNetCoreCLI@2
   displayName: 'Build the project - $(buildConfiguration)'
